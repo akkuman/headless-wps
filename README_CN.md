@@ -10,6 +10,8 @@
 
 你可以将此镜像作为其他镜像的基础镜像
 
+[相关的博客文章](https://hacktech.cn/2023/08/02/2023-08-02-docker-%E4%B8%AD%E4%BD%BF%E7%94%A8-pywpsrpc/)
+
 ### 样例
 
 ```Dockerfile
