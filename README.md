@@ -25,3 +25,7 @@ COPY example.py /root/example.py
 
 CMD ["xvfb-run", "python3", "example.py"]
 ```
+
+## References
+
+- [pywpsrpc](https://github.com/timxx/pywpsrpc)

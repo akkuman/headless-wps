@@ -23,3 +23,7 @@ COPY example.py /root/example.py
 
 CMD ["xvfb-run", "python3", "example.py"]
 ```
+
+## 参考链接
+
+- [pywpsrpc](https://github.com/timxx/pywpsrpc)
