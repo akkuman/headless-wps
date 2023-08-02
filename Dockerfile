@@ -13,7 +13,8 @@ RUN apt update && \
     # Cleaning cache:
     apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://wps-linux-personal.wpscdn.cn/wps/download/ep/Linux2019/11698/wps-office_11.1.0.11698_amd64.deb && \
+RUN apt update && \
+    wget https://wps-linux-personal.wpscdn.cn/wps/download/ep/Linux2019/11698/wps-office_11.1.0.11698_amd64.deb && \
     apt install -y ./wps-office_11.1.0.11698_amd64.deb && \
     rm -rf ./wps-office_11.1.0.11698_amd64.deb && \
     mkdir -p /root/.config/Kingsoft/ && \
