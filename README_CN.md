@@ -25,7 +25,7 @@ RUN python3 -m pip --no-cache-dir --no-compile install pywpsrpc
 
 COPY example.py /root/example.py
 
-CMD ["xvfb-run", "python3", "example.py"]
+CMD [ "python3", "example.py" ]
 ```
 
 ## 参考链接
