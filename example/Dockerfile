@@ -24,9 +24,9 @@ RUN sed -i "s|http://deb.debian.org/debian|http://mirror.sjtu.edu.cn/debian|g" /
 # for chinese font
 ADD https://ghproxy.com/https://raw.githubusercontent.com/StellarCN/scp_zh/master/fonts/SimHei.ttf /usr/share/fonts/
 
-COPY ./requirements.txt /app/
-RUN python3 -m pip install --no-cache-dir -r /app/requirements.txt
+COPY ./requirements.txt ./convertto.py ./entrypoint.sh /app/
+RUN python3 -m pip install --no-cache-dir -r /app/requirements.txt && \
+    chmod +x /app/entrypoint.sh
 
-COPY . /app/
-
-CMD [ "python3", "main.py" ]
+# The original entrypoint of the headless-wps image is xvfb-run, which is rewritten here, so you need to add it manually 
+ENTRYPOINT [ "/app/entrypoint.sh" ]

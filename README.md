@@ -30,6 +30,8 @@ COPY example.py /root/example.py
 CMD [ "python3", "example.py" ]
 ```
 
+or look at the [example](example) 
+
 ## References
 
 - [pywpsrpc](https://github.com/timxx/pywpsrpc)

@@ -28,6 +28,8 @@ COPY example.py /root/example.py
 CMD [ "python3", "example.py" ]
 ```
 
+或者查看[例子](example)
+
 ## 参考链接
 
 - [pywpsrpc](https://github.com/timxx/pywpsrpc)
