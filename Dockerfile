@@ -22,7 +22,7 @@ RUN apt update && \
     apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # disable wpscloudsvr zombie process
-RUN chmod -x /opt/kingsoft/wps-office/office6/wpscloudsvr && \
+RUN chmod -x /opt/kingsoft/wps-office/office6/wpscloudsvr
 
 COPY Office.conf /root/.config/Kingsoft/Office.conf
 COPY entrypoint.sh /root/entrypoint.sh
