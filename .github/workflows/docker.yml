@@ -37,7 +37,7 @@ jobs:
       -
         name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile
@@ -45,8 +45,8 @@ jobs:
           tags: |
             akkuman/headless-wps:${{ env.RELEASE_VERSION }}
             akkuman/headless-wps:latest
-            ghcr.io/akkuman/siyuan:${{ env.RELEASE_VERSION }}
-            ghcr.io/akkuman/siyuan:latest
+            ghcr.io/akkuman/headless-wps:${{ env.RELEASE_VERSION }}
+            ghcr.io/akkuman/headless-wps:latest
           cache-from: |
             type=gha,scope=finally
           cache-to: type=gha,scope=finally
