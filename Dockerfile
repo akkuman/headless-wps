@@ -9,7 +9,10 @@ ENV TZ=Asia/Shanghai
 WORKDIR /root
 
 RUN apt update && \
-    apt-get install -y wget bsdmainutils xdg-utils libxslt1.1 xvfb libqt5gui5 python3 && \
+    apt-get install -y wget bsdmainutils xdg-utils libxslt1.1 xvfb libqt5gui5 python3 binutils && \
+    # https://github.com/timxx/pywpsrpc/issues/39#issuecomment-2826545906
+    # https://github.com/timxx/pywpsrpc/issues/111#issuecomment-3209649920
+    strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5 && \
     # Cleaning cache:
     apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
