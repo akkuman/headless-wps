@@ -14,15 +14,15 @@ ENV LANG=C.UTF-8 \
 
 WORKDIR /app
 
-# python3.9(3.9.2)
-RUN sed -i "s|http://deb.debian.org/debian|http://mirror.sjtu.edu.cn/debian|g" /etc/apt/sources.list && \
+# python3.11
+RUN sed -i "s|deb.debian.org|mirrors.aliyun.com|g" /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y libqt5xml5 python3 python3-pip && \
     # Cleaning cache:
     apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # for chinese font
-ADD https://ghproxy.com/https://raw.githubusercontent.com/StellarCN/scp_zh/master/fonts/SimHei.ttf /usr/share/fonts/
+ADD https://raw.githubusercontent.com/StellarCN/scp_zh/master/fonts/SimHei.ttf /usr/share/fonts/
 
 COPY ./requirements.txt ./convertto.py ./entrypoint.sh /app/
 RUN python3 -m pip install --no-cache-dir -r /app/requirements.txt && \

@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim AS finally
+FROM debian:bookworm AS finally
 
 LABEL maintainer="Akkuman<akkumans@qq.com> (http://akkuman.cnblogs.com,https://www.hacktech.cn)"
 
