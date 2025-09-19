@@ -52,7 +52,4 @@ jobs:
             akkuman/headless-wps:latest
             ghcr.io/akkuman/headless-wps:${{ env.RELEASE_VERSION }}
             ghcr.io/akkuman/headless-wps:latest
-          cache-from: |
-            type=gha,scope=finally
-          cache-to: type=gha,scope=finally
           target: finally
