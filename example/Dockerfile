@@ -1,4 +1,5 @@
 FROM akkuman/headless-wps:latest
+# debian:bookworm-slim
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -15,7 +16,7 @@ ENV LANG=C.UTF-8 \
 WORKDIR /app
 
 # python3.11
-RUN sed -i "s|deb.debian.org|mirrors.aliyun.com|g" /etc/apt/sources.list && \
+RUN sed -i "s|deb.debian.org|mirrors.aliyun.com|g" /etc/apt/sources.list.d/debian.sources && \
     apt-get update && \
     apt-get install -y libqt5xml5 python3 python3-pip && \
     # Cleaning cache:
@@ -25,7 +26,9 @@ RUN sed -i "s|deb.debian.org|mirrors.aliyun.com|g" /etc/apt/sources.list && \
 ADD https://raw.githubusercontent.com/StellarCN/scp_zh/master/fonts/SimHei.ttf /usr/share/fonts/
 
 COPY ./requirements.txt ./convertto.py ./entrypoint.sh /app/
-RUN python3 -m pip install --no-cache-dir -r /app/requirements.txt && \
+
+# --break-system-packages for PEP 668
+RUN python3 -m pip install --break-system-packages --no-cache-dir -r /app/requirements.txt && \
     chmod +x /app/entrypoint.sh
 
 # The original entrypoint of the headless-wps image is xvfb-run, which is rewritten here, so you need to add it manually 
