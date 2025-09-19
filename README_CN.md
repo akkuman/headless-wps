@@ -16,19 +16,7 @@
 
 ### 样例
 
-```Dockerfile
-FROM akkuman/headless-wps
-
-RUN apt update && apt install libqt5xml5 python3 python3-pip
-
-RUN python3 -m pip --no-cache-dir --no-compile install pywpsrpc
-
-COPY example.py /root/example.py
-
-CMD [ "python3", "example.py" ]
-```
-
-或者查看[例子](example)
+查看[例子](example)
 
 ## 参考链接
 
